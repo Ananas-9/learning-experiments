@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% spaceless %}
+{% if category %} <h1>{{ category }}</h1> {% else %} <h1>Публікації</h1> {% endif %}
+
+<br/>
+
+<div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for item in items %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                {% if item.images.all.0.image.url %}
+                    <a href="{{ item.get_absolute_url }}">
+                        <img src="{{ item.images.all.0.image.url }}" class="card-img-top" alt="{{ item.title }}" style="height: 200px; object-fit: cover;">
+                    </a>
+                {% endif %}
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">
+                        <a href="{{ item.get_absolute_url }}" class="text-decoration-none text-dark">
+                            {{ item.title }}
+                        </a>
+                    </h5>
+
+                    <h6 class="card-subtitle mb-2 text-muted small">
+                        Опубліковано: {{ item.pub_date|date:"j E Y"|safe }}
+                    </h6>
+
+                    <p class="card-text flex-grow-1">
+                        {{ item.description|safe|escape|striptags|truncatewords_html:32 }}
+                    </p>
+
+                    <a href="{{ item.get_absolute_url }}" class="btn btn-outline-primary mt-3">
+                        Читати далі
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endspaceless %}
+{% endblock %}

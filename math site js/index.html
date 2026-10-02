@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schkoliaruk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo" onmouseover="showAuthorInfo()" onmouseout="hideAuthorInfo()">
+            Допомога школяру - Разом ми сила !
+            <div class="author-info" id="authorInfo">
+                <img src="IMG_9627.jpg" alt="Автор">
+                <p>Батуєва Анастасія<br>Студентка групи 211-А інд.ф.</p>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#task1">Калькулятор</a></li>
+            <li><a href="#task2">Величини</a></li>
+            <li><a href="#task3">Аналіз функцій</a></li>
+            <li><a href="#task4">Вектори</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="task1">
+        <h2>Калькулятор</h2>
+        <div id="calculator">
+            <input id="display" readonly>
+            <div id="keys">
+                <button onclick="appendToDisplay('+')">+</button>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('-')">-</button>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('*')">*</button>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('/')">/</button>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="clearDisplay()">C</button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="task2">
+        <h2>Величини</h2>
+        <p>Переводить одні величини у інші за вибором</p>
+        <div>
+            <input type="number" id="calcNum1" placeholder="Перше число">
+            <select id="1">
+                <option value="mm">мм</option>
+                <option value="cm">см</option>
+                <option value="dm">дм</option>
+                <option value="m">м</option>
+                <option value="km">км</option>
+            </select>
+            <select id="2">
+                <option value="mm">мм</option>
+                <option value="cm">см</option>
+                <option value="dm">дм</option>
+                <option value="m">м</option>
+                <option value="km">км</option>
+            </select>
+
+            <button onclick="veluchuna()">Обчислити</button>
+            <p id="calcResult"></p>
+        </div>
+
+    </section>
+
+    <section id="task3">
+        <h2>Аналіз функцій</h2>
+        <p>Введіть a, b, c</p>
+        <div>
+            <input type="number" id="a" placeholder="Число а">
+            <input type="number" id="b" placeholder="Число b">
+            <input type="number" id="c" placeholder="Число c">
+            <button onclick="funkanalys()">Проаналізувати</button>
+            <p id="funkResult"></p>
+            </div>
+    </section>
+
+    <section id="task4">
+        <h2>Вектори</h2>
+        <p>Введіть x, y, z першого вектору</p>
+        <div>
+            <input type="number" id="x1" placeholder="Число x">
+            <input type="number" id="y1" placeholder="Число y">
+            <input type="number" id="z1" placeholder="Число z">
+
+            <p>Введіть x, y, z першого вектору</p>
+            <input type="number" id="x2" placeholder="Число x">
+            <input type="number" id="y2" placeholder="Число y">
+            <input type="number" id="z2" placeholder="Число z">
+
+            <br><select id="VektorOperation">
+                <option value="+">Додавання</option>
+                <option value="-">Віднімання</option>
+                <option value="*">Скалярне множення</option>
+                <option value="x">Векторне множення</option>
+            </select>
+
+            <br>
+            <button onclick="Vektor()">Обчислити</button>
+
+            <p id="VektorResult"></p>
+        </div>
+    </section>
+    </main>
+<script src="index.js"></script>
+</body>
+
+</html>

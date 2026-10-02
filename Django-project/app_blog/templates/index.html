@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% spaceless %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if categories %}
+                    {% for item in categories %}
+                        <li class="nav-item me-3"> <a class="nav-link" href="{{ item.get_absolute_url }}">
+                                {{ item.category }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'articles-list' %}">
+                            Всі публікації
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container my-5">
+    <h2 class="text-center mb-4">✨ Особливі рецепти</h2>
+
+    {% if articles %}
+        <div id="featuredArticlesCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner rounded-3 shadow-lg">
+                {% for item in articles %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="card bg-light border-0">
+                            <div class="row g-0 align-items-center">
+
+                                {% if item.images.all.0.image.url %}
+                                <div class="col-md-5">
+                                    <a href="{{ item.get_absolute_url }}">
+                                        <img src="{{ item.images.all.0.image.url }}" class="img-fluid rounded-start" alt="{{ item.title }}"
+                                             style="height: 350px; object-fit: cover; width: 100%;">
+                                    </a>
+                                </div>
+                                {% endif %}
+
+                                <div class="{% if item.images.all.0.image.url %}col-md-7{% else %}col-12{% endif %} p-4">
+                                    <div class="card-body">
+                                        <h3 class="card-title display-6">
+                                            <a href="{{ item.get_absolute_url }}" class="text-decoration-none text-dark">
+                                                {{ item.title }}
+                                            </a>
+                                        </h3>
+
+                                        <p class="card-subtitle mb-3 text-muted">
+                                            Опубліковано: {{ item.pub_date|date:"j E Y"|safe }}
+                                        </p>
+
+                                        <p class="card-text">
+                                            {{ item.description|safe|escape|striptags|truncatewords_html:32 }}
+                                        </p>
+
+                                        <a href="{{ item.get_absolute_url }}" class="btn btn-primary mt-3">
+                                            Читати повністю
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#featuredArticlesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Попередня</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#featuredArticlesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Наступна</span>
+            </button>
+
+            <div class="carousel-indicators">
+                {% for item in articles %}
+                    <button type="button" data-bs-target="#featuredArticlesCarousel" data-bs-slide-to="{{ forloop.counter0 }}"
+                        class="{% if forloop.first %}active{% endif %}"
+                        aria-current="{% if forloop.first %}true{% endif %}"
+                        aria-label="Slide {{ forloop.counter }}">
+                    </button>
+                {% endfor %}
+            </div>
+
+        </div>
+    {% endif %}
+</div>
+
+{% endspaceless %}
+{% endblock %}

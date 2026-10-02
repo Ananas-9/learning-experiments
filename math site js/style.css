@@ -1,0 +1,199 @@
+/* Основні стилі */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #D5F0D9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка та навігація */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #3C8A67;
+    color: white;
+    padding: 30px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    position: relative;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.logo:hover {
+    background-color: #51B687;
+}
+
+.author-info {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    z-index: 1001;
+}
+
+.author-info img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    background-color: #51B687;
+}
+/* Основний вміст */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #296248;
+    margin-top: 0;
+    border-bottom: 2px solid #71C099;
+    padding-bottom: 10px;
+}
+
+/* Форми та кнопки */
+input, select, button {
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input, select {
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+
+}
+
+#calculator{
+    font-family: Arial, sans-serif;
+    background-color: #51B687;
+    border-radius: 20px;
+    max-width: 400px;
+    overflow: hidden;
+
+
+}
+#display{
+    width: 100%;
+    padding: 40px;
+    font-size: 40px;
+    text-align: left;
+    border: none;
+    background-color: #B5E0C4 ;
+    color: white;
+
+}
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    gap: 5px;
+    padding: 20px;
+
+
+}
+#keys button {
+    background-color: #3C8A67;
+    width: 65px;
+    height: 65px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+button {
+    background-color: #3C8A67;
+    width: 150px;
+    height: 55px;
+    display: inline-block;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 55px;
+    font-size: 16px;
+    text-align: center;
+    padding: 0;
+}
+
+button:hover {
+    background-color: #296248;
+}
+button:active {
+    background-color: #71C099;
+}
+
+.text-actions button {
+    margin-right: 10px;
+}
+
+/* Результати */
+#VektorResult, #funkResult,
+#calcResult {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid #239025;
+}
+

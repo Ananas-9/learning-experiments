@@ -1,0 +1,59 @@
+:root {
+    --back-color: #333; /* Основний колір */
+    --haupt-color: #0073e6; /* Вторинний колір */
+    --padding-size: 20px; /* Базовий відступ */
+    --akzent: red;
+
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: var(--back-color);
+    padding: var(--padding-size);
+}
+h1, h2 {
+    color: var(--haupt-color);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.5em;
+}
+p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #666;
+}
+a {
+    color: var(--haupt-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: underline;
+    color: var(--akzent);
+}
+
+fieldset {
+    border: 5px solid var(--haupt-color);
+}
+header {
+    border: 1px solid var(--haupt-color);
+}
+
+.center-both {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p::after {
+    content: "✨";
+}
